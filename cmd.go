@@ -191,7 +191,7 @@ var htitleCmd = &Z.Cmd{
 			if length%2 == 1 {
 				right--
 			}
-			line := LineExp.ReplaceAllString(text, comment+strings.Repeat(fil, left)+` `+`$1`+` `+strings.Repeat(fil, right))
+			line := LineExp.ReplaceAllString(text, com+strings.Repeat(fil, left)+` `+`$1`+` `+strings.Repeat(fil, right))
 			fmt.Println(line)
 		}
 		if err := scanner.Err(); err != nil {
