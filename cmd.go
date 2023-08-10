@@ -4,14 +4,15 @@ import (
 	"bufio"
 	_ "embed"
 	"fmt"
-	Z "github.com/rwxrob/bonzai/z"
-	"github.com/rwxrob/conf"
-	"github.com/rwxrob/help"
-	"github.com/rwxrob/vars"
 	"os"
 	"regexp"
 	"strconv"
 	"strings"
+
+	Z "github.com/rwxrob/bonzai/z"
+	"github.com/rwxrob/conf"
+	"github.com/rwxrob/help"
+	"github.com/rwxrob/vars"
 )
 
 var (
@@ -84,7 +85,7 @@ var commentCmd = &Z.Cmd{
 	Commands:    []*Z.Cmd{help.Cmd},
 	Description: commentDesc,
 	Call: func(x *Z.Cmd, args ...string) error {
-		com, err := x.Caller.Get("comment")
+		com, err := x.Caller.Get(`comment`)
 		if err != nil {
 			return err
 		}
@@ -118,7 +119,7 @@ var uncommentCmd = &Z.Cmd{
 	Commands:    []*Z.Cmd{help.Cmd},
 	Description: uncommentDesc,
 	Call: func(x *Z.Cmd, args ...string) error {
-		com, err := x.Caller.Get("comment")
+		com, err := x.Caller.Get(`comment`)
 		if err != nil {
 			return err
 		}
@@ -152,12 +153,12 @@ var htitleCmd = &Z.Cmd{
 	Commands:    []*Z.Cmd{help.Cmd},
 	Description: uncommentDesc,
 	Call: func(x *Z.Cmd, args ...string) error {
-		com, err := x.Caller.Get("comment")
+		com, err := x.Caller.Get(`comment`)
 		if err != nil {
 			return err
 		}
 
-		hrule, err := x.Caller.Get("hrulewidth")
+		hrule, err := x.Caller.Get(`hrulewidth`)
 		if err != nil {
 			return err
 		}
@@ -167,7 +168,7 @@ var htitleCmd = &Z.Cmd{
 			return err
 		}
 
-		fil, err := x.Caller.Get("filler")
+		fil, err := x.Caller.Get(`filler`)
 		if err != nil {
 			return err
 		}
